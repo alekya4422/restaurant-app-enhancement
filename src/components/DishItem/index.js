@@ -61,7 +61,7 @@ const DishItem = ({dishDetails}) => {
             Customizations available
           </p>
         )}
-        {quantity > 0 && (
+        {dishAvailability && quantity > 0 && (
           <button
             type="button"
             className="btn btn-outline-primary mt-3"

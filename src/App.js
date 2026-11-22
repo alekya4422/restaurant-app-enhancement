@@ -14,7 +14,7 @@ import './App.css'
 // write your code here
 const App = () => {
   const [cartList, setCartList] = useState([])
-  const [restaurantName, setRestaurantName] = useState('')
+  const [restaurantName, setRestaurantName] = useState('UNI Resto Cafe')
 
   const addCartItem = dish => {
     const isAlreadyExists = cartList.find(item => item.dishId === dish.dishId)
