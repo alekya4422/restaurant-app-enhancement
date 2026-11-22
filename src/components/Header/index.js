@@ -1,4 +1,5 @@
 /* eslint-disable react/self-closing-comp */
+/* eslint-disable react/no-unknown-property */
 import {useContext} from 'react'
 import {Link, withRouter} from 'react-router-dom'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
@@ -20,7 +21,12 @@ const Header = props => {
   const renderCartIcon = () => (
     <div className="cart-icon-link">
       <Link to="/cart">
-        <button type="button" className="cart-icon-button" data-testid="cart">
+        <button
+          type="button"
+          className="cart-icon-button"
+          testid="cart"
+          data-testid="cart"
+        >
           <AiOutlineShoppingCart className="cart-icon" />
         </button>
       </Link>

@@ -7,7 +7,7 @@ import CartContext from '../../context/CartContext'
 
 import './index.css'
 
-const Home = props => {
+const Home = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [response, setResponse] = useState([])
   const [activeCategoryId, setActiveCategoryId] = useState('')
@@ -35,26 +35,9 @@ const Home = props => {
 
   const fetchRestaurantApi = async () => {
     const api =
-      props?.dishesApiUrl ||
-      'https://run.mocky.io/v3/72562bef-1d10-4cf5-bd26-8b0c53460a8e'
-    try {
-      const apiResponse = await fetch(api)
-      if (apiResponse.ok) {
-        const data = await apiResponse.json()
-        const updatedData = getUpdatedData(data[0].table_menu_list)
-        setResponse(updatedData)
-        setRestaurantName(data[0].restaurant_name)
-        setActiveCategoryId(updatedData[0].menuCategoryId)
-        setIsLoading(false)
-        return
-      }
-    } catch (error) {
-      // fallback to ccbp api
-    }
-    const fallbackApi =
       'https://apis2.ccbp.in/restaurant-app/restaurant-menu-list-details'
-    const fallbackResponse = await fetch(fallbackApi)
-    const data = await fallbackResponse.json()
+    const apiResponse = await fetch(api)
+    const data = await apiResponse.json()
     const updatedData = getUpdatedData(data[0].table_menu_list)
     setResponse(updatedData)
     setRestaurantName(data[0].restaurant_name)
